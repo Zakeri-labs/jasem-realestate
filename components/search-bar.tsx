@@ -61,7 +61,7 @@ export function SearchBar() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute left-0 right-0 z-[1000] mt-4 max-h-60 overflow-y-auto rounded-2xl shadow-2xl bg-black/80 backdrop-blur-3xl border border-white/10 p-2 lg:left-auto lg:min-w-[240px]"
+                    className="absolute left-0 right-0 z-[1000] mt-4 max-h-60 overflow-y-auto rounded-2xl shadow-2xl bg-black/80 backdrop-blur-xl border border-white/10 p-2 lg:left-auto lg:min-w-[240px]"
                   >
                     {field.options.map((option) => (
                       <button
