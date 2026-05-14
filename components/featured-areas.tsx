@@ -90,7 +90,7 @@ export function SignatureProjects() {
                   <motion.div
                     whileHover={{ y: -10 }}
                     transition={{ duration: 0.3 }}
-                    className="group relative flex flex-col overflow-hidden rounded-[3rem] bg-neutral-900/10 transition-all duration-300 hover:shadow-2xl backdrop-blur-sm border border-white/5"
+                    className="group relative flex flex-col overflow-hidden rounded-[3rem] glass-card transition-all duration-300 hover:shadow-2xl"
                   >
                     <div className="relative aspect-[1/1.2] w-full overflow-hidden">
                       <Image
@@ -103,7 +103,7 @@ export function SignatureProjects() {
                     </div>
                     
                     {/* Content Area - Glassmorphic & Reduced Height */}
-                    <div className={`flex items-center justify-between px-8 py-6 bg-white/5 backdrop-blur-xl border-t border-white/10 ${isRTL ? 'flex-row-reverse text-right' : 'text-left'}`}>
+                    <div className={`flex items-center justify-between px-8 py-6 glass-card border-none rounded-none border-t border-white/10 ${isRTL ? 'flex-row-reverse text-right' : 'text-left'}`}>
                       <div className="flex flex-col">
                         <h3 className={`text-[1.3rem] font-semibold tracking-tight ${
                           theme === 'light' ? 'text-neutral-900' : 'text-white'

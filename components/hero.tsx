@@ -30,7 +30,7 @@ export function Hero() {
       {/* Background Images with Theme Transition */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          key={`${theme}-${isMobile}`}
+          key={theme}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
@@ -72,6 +72,7 @@ export function Hero() {
             isVideoPlaying={isVideoPlaying}
             setIsVideoPlaying={setIsVideoPlaying}
             isMobile={true}
+            isActive={isMobile}
           />
         </div>
 
@@ -160,6 +161,7 @@ export function Hero() {
             isVideoPlaying={isVideoPlaying}
             setIsVideoPlaying={setIsVideoPlaying}
             isMobile={false}
+            isActive={!isMobile}
           />
         </div>
       </div>
@@ -172,10 +174,9 @@ export function Hero() {
   )
 }
 
-function FounderCard({ theme, language, isRTL, handleWhatsApp, isVideoPlaying, setIsVideoPlaying, isMobile }: any) {
+function FounderCard({ theme, language, isRTL, handleWhatsApp, isVideoPlaying, setIsVideoPlaying, isMobile, isActive }: any) {
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, x: isMobile ? 0 : 20, y: isMobile ? 20 : 0 }}
       animate={{ 
         opacity: 1, 
@@ -186,17 +187,15 @@ function FounderCard({ theme, language, isRTL, handleWhatsApp, isVideoPlaying, s
       transition={{ 
         duration: 0.7, 
         ease: [0.23, 1, 0.32, 1],
-        layout: { duration: 0.7 }
       }}
       className={isMobile ? "relative z-20" : `absolute bottom-[180px] z-20 ${isRTL ? 'left-6 lg:left-12' : 'right-6 lg:right-12'} overflow-hidden sm:bottom-[200px] lg:bottom-[220px]`}
     >
       <motion.div 
-        layout
-        className={`h-full w-full rounded-[1.2rem] p-4 shadow-2xl glass-card border border-white/10 backdrop-blur-2xl relative transition-all duration-700 ease-[0.23,1,0.32,1] ${
+        className={`h-full w-full rounded-[1.2rem] p-4 shadow-2xl glass-card relative transition-all duration-700 ease-[0.23,1,0.32,1] ${
           isVideoPlaying ? 'aspect-video' : ''
         }`}
       >
-        <AnimatePresence mode="popLayout" initial={false}>
+        <AnimatePresence mode="wait" initial={false}>
           {!isVideoPlaying ? (
             <motion.div
               key="content"
@@ -243,7 +242,7 @@ function FounderCard({ theme, language, isRTL, handleWhatsApp, isVideoPlaying, s
                 </p>
               </div>
             </motion.div>
-          ) : (
+          ) : isActive ? (
             <motion.div
               key="video"
               initial={{ opacity: 0 }}
@@ -274,7 +273,7 @@ function FounderCard({ theme, language, isRTL, handleWhatsApp, isVideoPlaying, s
                 </video>
               </div>
             </motion.div>
-          )}
+          ) : null}
         </AnimatePresence>
       </motion.div>
     </motion.div>

@@ -69,14 +69,13 @@
 :root {
   --font-yekan: 'Yekan Bakh', sans-serif;
   --font-arabic: 'Cairo', sans-serif;
-  /* Luxury Dubai Light Theme - Neutral and Sophisticated */
   --background: #fefdfc;
   --foreground: oklch(0.15 0.02 60);
   --card: oklch(0.99 0.003 85);
   --card-foreground: oklch(0.15 0.02 60);
   --popover: oklch(0.99 0.003 85);
   --popover-foreground: oklch(0.15 0.02 60);
-  --primary: oklch(0.25 0.02 60); /* Neutral Dark Grey/Navy */
+  --primary: oklch(0.25 0.02 60);
   --primary-foreground: oklch(0.98 0.005 85);
   --secondary: oklch(0.94 0.01 85);
   --secondary-foreground: oklch(0.25 0.03 60);
@@ -90,8 +89,6 @@
   --input: oklch(0.92 0.01 85);
   --ring: oklch(0.6 0.01 60);
   --radius: 0.75rem;
-  
-  /* Custom luxury tokens - Neutralized */
   --gold: oklch(0.4 0.01 60);
   --gold-light: oklch(0.6 0.01 60);
   --sand: oklch(0.95 0.01 85);
@@ -101,7 +98,6 @@
 }
 
 .dark {
-  /* Luxury Dubai Dark Theme - Deep neutral tones */
   --background: #011023;
   --foreground: oklch(0.95 0.01 85);
   --card: oklch(0.12 0.01 255);
@@ -202,26 +198,52 @@
   font-weight: 400 !important;
 }
 
-/* Glassmorphism utilities - Standardized based on Founder Card */
-@utility glass-nav, .glass-card, .glass-search {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-
-  @variant dark {
-    background: rgba(20, 25, 35, 0.5);
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass-nav {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   }
-}
+  .dark .glass-nav {
+    background: rgba(10, 15, 30, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
 
-@utility glass-shine {
-  position: relative;
-  overflow: hidden;
+  .glass-card {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+  .dark .glass-card {
+    background: rgba(10, 15, 30, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
 
-  &::before {
+  .glass-search {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+  .dark .glass-search {
+    background: rgba(10, 15, 30, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .glass-shine::before {
     content: '';
     position: absolute;
     top: 0;
@@ -237,22 +259,21 @@
     transform: skewX(-20deg);
     transition: 0.6s;
   }
-
-  &:hover::before {
+  .glass-shine:hover::before {
     left: 150%;
   }
-}
 
-@utility text-primary-glass {
-  color: rgba(20, 20, 20, 0.9);
-  @variant dark {
+  .text-primary-glass {
+    color: rgba(20, 20, 20, 0.9);
+  }
+  .dark .text-primary-glass {
     color: rgba(255, 255, 255, 0.95);
   }
-}
 
-@utility text-secondary-glass {
-  color: rgba(20, 20, 20, 0.6);
-  @variant dark {
+  .text-secondary-glass {
+    color: rgba(20, 20, 20, 0.6);
+  }
+  .dark .text-secondary-glass {
     color: rgba(255, 255, 255, 0.7);
   }
 }
@@ -266,7 +287,6 @@
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* Text gradient utility */
 .text-gradient {
   background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
   -webkit-background-clip: text;
@@ -274,12 +294,10 @@
   background-clip: text;
 }
 
-/* Smooth theme transition */
 html {
   transition: background-color 0.5s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -297,7 +315,6 @@ html {
   background: oklch(0.6 0.01 60 / 0.5);
 }
 
-/* RTL Support */
 [dir="rtl"] {
   text-align: right;
 }

@@ -313,7 +313,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en')
-  const [theme, setThemeState] = useState<Theme>('light')
+  const [theme, setThemeState] = useState<Theme>('dark')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -326,7 +326,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (savedTheme) {
       setThemeState(savedTheme)
       document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-    } else if (prefersDark) {
+    } else {
+      // Default to dark as requested, or follow system if preferred
       setThemeState('dark')
       document.documentElement.classList.add('dark')
     }

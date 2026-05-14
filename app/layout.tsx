@@ -46,9 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body 
-        className={`${playfair.variable} ${inter.variable} font-sans antialiased bg-background 
-          [&:has([lang=fa])]:font-[family-name:var(--font-yekan)] 
-          [&:has([lang=ar])]:font-[family-name:var(--font-arabic)]`}
+        className={`${playfair.variable} ${inter.variable} font-sans antialiased bg-background`}
         suppressHydrationWarning
       >
         <AppProvider>

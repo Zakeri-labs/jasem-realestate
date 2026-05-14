@@ -83,8 +83,8 @@ export function FeaturesIcons() {
               onClick={handleWhatsApp}
               className={`group relative flex flex-col items-center p-4 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] transition-all duration-500 cursor-pointer ${
                 theme === 'light'
-                ? 'hover:bg-neutral-900/5 hover:backdrop-blur-xl'
-                : 'hover:bg-white/5 hover:shadow-2xl hover:shadow-primary/5'
+                ? 'hover:glass-card hover:bg-white/40'
+                : 'hover:glass-card hover:bg-white/5 hover:shadow-2xl hover:shadow-primary/5'
               }`}
             >
               {/* Icon Container - Dynamic & Sophisticated */}
