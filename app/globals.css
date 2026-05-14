@@ -198,50 +198,53 @@
   font-weight: 400 !important;
 }
 
-/* Glassmorphism utilities */
-@utility glass-nav {
+/* =============================================
+   Glassmorphism — plain CSS (Vercel-safe)
+   ============================================= */
+
+.glass-nav {
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-
-  @variant dark {
-    background: rgba(10, 15, 30, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  }
 }
 
-@utility glass-card {
+.dark .glass-nav {
+  background: rgba(10, 15, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-card {
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-
-  @variant dark {
-    background: rgba(10, 15, 30, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  }
 }
 
-@utility glass-search {
+.dark .glass-card {
+  background: rgba(10, 15, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-search {
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-
-  @variant dark {
-    background: rgba(10, 15, 30, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  }
 }
 
-@utility glass-shine {
+.dark .glass-search {
+  background: rgba(10, 15, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-shine {
   position: relative;
   overflow: hidden;
 }
@@ -267,21 +270,25 @@
   left: 150%;
 }
 
-@utility text-primary-glass {
+.text-primary-glass {
   color: rgba(20, 20, 20, 0.9);
-
-  @variant dark {
-    color: rgba(255, 255, 255, 0.95);
-  }
 }
 
-@utility text-secondary-glass {
+.dark .text-primary-glass {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.text-secondary-glass {
   color: rgba(20, 20, 20, 0.6);
-
-  @variant dark {
-    color: rgba(255, 255, 255, 0.7);
-  }
 }
+
+.dark .text-secondary-glass {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =============================================
+   Misc
+   ============================================= */
 
 .hero-card-white {
   color: white !important;
